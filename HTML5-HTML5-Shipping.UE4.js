@@ -1133,7 +1133,7 @@ $(document).ready(function() {
 				return { db: db, wasmBytes: wasmBytes, fromIndexedDB: true };
 			});
 		}).catch(function() {
-			return download(Module.locateFile('https://web_game.hb.ru-msk.vkcs.cloud/UE4Game-HTML5-Shipping.wasm'), 'arraybuffer').then(function(wasmBytes) {
+			return download(Module.locateFile('https://dl.dropboxusercontent.com/scl/fi/pgdsctwvkhjx1i176m4bj/UE4Game-HTML5-Shipping.wasm?rlkey=b14wrn10wuln18s2zlezpdveb&dl=0'), 'arraybuffer').then(function(wasmBytes) {
 				return { db: db, wasmBytes: wasmBytes, fromIndexedDB: false };
 			});
 		});
@@ -1158,18 +1158,18 @@ $(document).ready(function() {
 		var utilityJsDownload = fetchOrDownloadAndStore(db, Module.locateFile('https://rawcdn.githack.com/Developer3Dkids/Web_game/aac4fe4f6ab30bdf64c7fc410d20429a4cc27f9e/Utility.js')).then(addScriptToDom);
 		var dataDownload =
 /* // The following code would download and store the .data file as a Blob, which should be more efficient than loading an ArrayBuffer. However that seems to be buggy, so avoid it for now.
-			fetchOrDownloadAndStore(db, Module.locateFile('https://web_game.hb.ru-msk.vkcs.cloud/HTML5-HTML5-Shipping.data')).then(function(dataBlob) {
+			fetchOrDownloadAndStore(db, Module.locateFile('https://dl.dropboxusercontent.com/scl/fi/ti3m78ipdbmspwcpepjt1/HTML5-HTML5-Shipping.data?rlkey=w3799dsbytwkf9b8sp7bej0lm&dl=0')).then(function(dataBlob) {
 				return readBlobToArrayBuffer(dataBlob).then(function(dataArrayBuffer) {
 					Module['preloadedPackages'] = {};
-					Module['preloadedPackages'][Module.locateFile('https://web_game.hb.ru-msk.vkcs.cloud/HTML5-HTML5-Shipping.data')] = dataArrayBuffer;
+					Module['preloadedPackages'][Module.locateFile('https://dl.dropboxusercontent.com/scl/fi/ti3m78ipdbmspwcpepjt1/HTML5-HTML5-Shipping.data?rlkey=w3799dsbytwkf9b8sp7bej0lm&dl=0')] = dataArrayBuffer;
 					return dataJsDownload.then(addScriptToDom);
 				})
 			});
 */
 // Instead as a fallback, download as ArrayBuffer. (TODO: Figure out the bugs with the above, and switch to using that one instead)
-			fetchOrDownloadAndStore(db, Module.locateFile('https://web_game.hb.ru-msk.vkcs.cloud/HTML5-HTML5-Shipping.data'), 'arraybuffer').then(function(dataArrayBuffer) {
+			fetchOrDownloadAndStore(db, Module.locateFile('https://dl.dropboxusercontent.com/scl/fi/ti3m78ipdbmspwcpepjt1/HTML5-HTML5-Shipping.data?rlkey=w3799dsbytwkf9b8sp7bej0lm&dl=0'), 'arraybuffer').then(function(dataArrayBuffer) {
 				Module['preloadedPackages'] = {};
-				Module['preloadedPackages'][Module.locateFile('https://web_game.hb.ru-msk.vkcs.cloud/HTML5-HTML5-Shipping.data')] = dataArrayBuffer;
+				Module['preloadedPackages'][Module.locateFile('https://dl.dropboxusercontent.com/scl/fi/ti3m78ipdbmspwcpepjt1/HTML5-HTML5-Shipping.data?rlkey=w3799dsbytwkf9b8sp7bej0lm&dl=0')] = dataArrayBuffer;
 				return dataJsDownload.then(addScriptToDom);
 			});
 
